@@ -1,23 +1,32 @@
 {
-  "name": "january-14-homework",
+  "name": "burger",
   "version": "1.0.0",
-  "description": "",
+  "description": "App to track the burgers I want to eat",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cyonge/Burger-App.git"
+    "url": "git+https://github.com/AnthonyGarces/Burger.git"
   },
-  "author": "",
+  "keywords": [
+    "Burger",
+    "sequelize"
+  ],
+  "author": "Esteban Garces",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Cyonge/Burger-App/issues"
+    "url": "https://github.com/AnthonyGarces/Burger/issues"
   },
-  "homepage": "https://github.com/Cyonge/Burger-App#readme",
+  "homepage": "https://github.com/AnthonyGarces/Burger#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mysql": "^2.17.1"
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "sequelize-cli": "^5.5.1"
   }
 }

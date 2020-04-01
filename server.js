@@ -1,20 +1,36 @@
-const express = require("express");
-const fs = require("fs");
+//Starting point for the node/express servers
+
+//Dependencies
+//==============================================================
+var express = require("express");
+const db = require('./models');
 
 
+//Sets up express
+//==============================================================
 var app = express();
-var PORT = 3000;
+var PORT = process.env.PORT || 8080;
 
-
+//Sets up the Express App to handle data parsing
+//==============================================================
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// this is an express feature that creates a route to the assets folder where the css and JS lives
-// app.use(express.static("public"));
-app.use(express.json());
 
+//Static directory to be served
+//==============================================================
+app.use(express.static("app/public"));
 
+//Routes
+//==============================================================
+require("./public/routes/apiRoutes.js")(app);
 
-app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+require("./public/routes/htmlRoutes.js")(app);
+
+//Starts the server to begin listening
+//==============================================================
+db.sequelize.sync().then(function() {
+    app.listen(PORT, function(){
+        console.log("app listening on PORT " + PORT);
+    })
+})
